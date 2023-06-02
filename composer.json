@@ -1,0 +1,39 @@
+{
+    "name": "flamix/settings",
+    "description": "Persistent settings in Laravel. Fork from Andreas Lutro app.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andreas Lutro",
+            "email": "anlutro@gmail.com"
+        },
+        {
+            "name": "Roman Shkabko",
+            "email": "r.shkabko@flamix.email"
+        }
+    ],
+    "require": {
+        "illuminate/support": ">=8",
+        "illuminate/cache": ">=8"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Flamix\\Settings\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "Setting": "Flamix\\Settings\\Facades\\Setting"
+            },
+            "providers": [
+                "Flamix\\Settings\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
