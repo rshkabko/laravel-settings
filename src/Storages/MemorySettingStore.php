@@ -2,6 +2,8 @@
 
 namespace Flamix\Settings\Storages;
 
+use Flamix\Settings\SettingStore;
+
 class MemorySettingStore extends SettingStore
 {
 	public function __construct(array $data = null)

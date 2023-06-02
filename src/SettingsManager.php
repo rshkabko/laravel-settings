@@ -1,16 +1,12 @@
 <?php
-/**
- * Laravel 4 - Persistent Settings
- *
- * @author   Andreas Lutro <anlutro@gmail.com>
- * @license  http://opensource.org/licenses/MIT
- * @package  l4-settings
- */
 
 namespace Flamix\Settings;
 
 use Illuminate\Support\Manager;
 use Illuminate\Foundation\Application;
+use Flamix\Settings\Storages\JsonSettingStore;
+use Flamix\Settings\Storages\DatabaseSettingStore;
+use Flamix\Settings\Storages\MemorySettingStore;;
 
 class SettingsManager extends Manager
 {

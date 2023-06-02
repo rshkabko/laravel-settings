@@ -3,6 +3,7 @@
 namespace Flamix\Settings\Storages;
 
 use Illuminate\Filesystem\Filesystem;
+use Flamix\Settings\SettingStore;
 
 class JsonSettingStore extends SettingStore
 {
