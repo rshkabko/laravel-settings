@@ -111,6 +111,7 @@ class DatabaseSettingStore extends SettingStore
 	 */
 	public function setExtraColumns(array $columns)
 	{
+		$this->forgetAll();
 		$this->extraColumns = $columns;
 	}
 
