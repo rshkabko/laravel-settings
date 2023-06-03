@@ -5,6 +5,7 @@ namespace Flamix\Settings\Storages;
 use Illuminate\Database\Connection;
 use Illuminate\Support\Arr;
 use Flamix\Settings\SettingStore;
+use Flamix\Settings\ArrayUtil;
 
 class DatabaseSettingStore extends SettingStore
 {
