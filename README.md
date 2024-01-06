@@ -18,7 +18,7 @@ You can either access the setting store via its facade or inject it by type-hint
 Setting::set('foo', 'bar');
 Setting::get('foo', 'default value');
 Setting::get('nested.element');
-Setting::forget('foo');
+Setting::forget('foo'); // Do not forget save() after this!!
 $settings = Setting::all();
 ?>
 ```
