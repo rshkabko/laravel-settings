@@ -8,12 +8,12 @@ use Flamix\Settings\ArrayUtil;
 
 class ModelSettingStore extends SettingStore
 {
-    /**
-     * Model instance.
-     *
-     * @var object
-     */
-    protected object $model;
+	/**
+	 * Model instance.
+	 *
+	 * @var object
+	 */
+	protected object $model;
 
 	/**
 	 * Any extra columns that should be added to the rows.
@@ -23,9 +23,9 @@ class ModelSettingStore extends SettingStore
 	protected $extraColumns = [];
 
 	public function __construct(string $model)
-    {
-        $this->model = app($model);
-    }
+	{
+		$this->model = app($model);
+	}
 
 	/**
 	 * Set the table to query from.
@@ -33,9 +33,9 @@ class ModelSettingStore extends SettingStore
 	 * @param string $table
 	 */
 	public function setModel($model)
-    {
-        $this->model = $model;
-    }
+	{
+		$this->model = $model;
+	}
 
 	/**
 	 * Set extra columns to be added to the rows.
@@ -48,15 +48,15 @@ class ModelSettingStore extends SettingStore
 		$this->extraColumns = $columns;
 	}
 
-    /**
-     * Forget setting by key.
-     * Do not forget save(), if you need to save the changes.
-     * By default method only forgets dinamicly settings.
-     *
-     * @param $key
-     * @return void
-     */
-    public function forget($key): void
+	/**
+	 * Forget setting by key.
+	 * Do not forget save(), if you need to save the changes.
+	 * By default method only forgets dinamicly settings.
+	 *
+	 * @param $key
+	 * @return void
+	 */
+	public function forget($key): void
 	{
 		parent::forget($key);
 
@@ -79,14 +79,14 @@ class ModelSettingStore extends SettingStore
 		}
 	}
 
-    /**
-     * Save settings to database.
-     * Do not forget save(), if you need to save the changes.
-     *
-     * @param array $data
-     * @return void
-     */
-    protected function write(array $data): void
+	/**
+	 * Save settings to database.
+	 * Do not forget save(), if you need to save the changes.
+	 *
+	 * @param array $data
+	 * @return void
+	 */
+	protected function write(array $data): void
 	{
 		$keysQuery = $this->newQuery();
 		$keys = $keysQuery->pluck('key');
@@ -98,9 +98,9 @@ class ModelSettingStore extends SettingStore
 		$deleteKeys = [];
 
 		foreach ($keys as $key) {
-            if (isset($updatedData[$key]) && isset($persistedData[$key]) && (string)$updatedData[$key] !== (string)$persistedData[$key]) {
+			if (isset($updatedData[$key]) && isset($persistedData[$key]) && (string)$updatedData[$key] !== (string)$persistedData[$key]) {
 				$updateData[$key] = $updatedData[$key];
-            } elseif (!isset($insertData[$key])) {
+			} elseif (!isset($insertData[$key])) {
 				$deleteKeys[] = $key;
 			}
 			unset($insertData[$key]);
@@ -114,7 +114,7 @@ class ModelSettingStore extends SettingStore
 
 		if ($insertData) {
 			$this->newQuery(true)
-                ->insert($this->prepareInsertData($insertData));
+				->insert($this->prepareInsertData($insertData));
 		}
 
 		if ($deleteKeys) {
@@ -152,12 +152,12 @@ class ModelSettingStore extends SettingStore
 	}
 
 
-    /**
-     * Get settings from database.
-     *
-     * @return mixed
-     */
-    protected function read(): mixed
+	/**
+	 * Get settings from database.
+	 *
+	 * @return mixed
+	 */
+	protected function read(): mixed
 	{
 		return $this->parseReadData($this->newQuery()->get());
 	}
@@ -171,7 +171,7 @@ class ModelSettingStore extends SettingStore
 	 */
 	public function parseReadData($data): array
 	{
-        $results = [];
+		$results = [];
 
 		foreach ($data as $row) {
 			if (is_array($row)) {
@@ -204,7 +204,7 @@ class ModelSettingStore extends SettingStore
 
 		if (!$insert) {
 			foreach ($this->extraColumns as $key => $value) {
-                $model->where($key, '=', $value);
+				$model->where($key, '=', $value);
 			}
 		}
 
