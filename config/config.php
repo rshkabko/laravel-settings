@@ -9,7 +9,7 @@ return [
 	| This option controls the default settings store that gets used while
 	| using this settings library.
 	|
-	| Supported: "json", "database"
+	| Supported: "json", "database", "model"
 	|
 	*/
 	'store' => 'database',
@@ -38,6 +38,16 @@ return [
 	'table' => 'settings', // Name of the table used.
 	'keyColumn' => 'key',
 	'valueColumn' => 'value',
+
+    /*
+	|--------------------------------------------------------------------------
+	| Model Store
+	|--------------------------------------------------------------------------
+	|
+	| Model settings are stored in the defined table.
+	|
+	*/
+    'model' => env('SETTINGS_MODEL', \Flamix\Settings\Models\Settings::class),
 
     /*
     |--------------------------------------------------------------------------

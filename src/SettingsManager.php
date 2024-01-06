@@ -6,6 +6,7 @@ use Illuminate\Support\Manager;
 use Illuminate\Foundation\Application;
 use Flamix\Settings\Storages\JsonSettingStore;
 use Flamix\Settings\Storages\DatabaseSettingStore;
+use Flamix\Settings\Storages\ModelSettingStore;
 use Flamix\Settings\Storages\MemorySettingStore;;
 
 class SettingsManager extends Manager
@@ -36,6 +37,14 @@ class SettingsManager extends Manager
 
 		return $this->wrapDriver($store);
 	}
+
+    public function createModelDriver()
+    {
+        $model = $this->getConfig('settings.model');
+        $store = new ModelSettingStore($model);
+
+        return $this->wrapDriver($store);
+    }
 
 	public function createMemoryDriver()
 	{
