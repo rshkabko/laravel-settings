@@ -204,7 +204,7 @@ class ModelSettingStore extends SettingStore
 
 		if (!$insert) {
 			foreach ($this->extraColumns as $key => $value) {
-				$model->where($key, '=', $value);
+                $model = $model->where($key, '=', $value);
 			}
 		}
 
