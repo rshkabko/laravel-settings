@@ -59,7 +59,7 @@ return [
     */
 	'enableCache' => false, // Use cache
 	'forgetCacheByWrite' => true, // Whether to reset the cache when changing a setting.
-	'cacheTtl' => 15, // TTL in seconds.
+	'cacheTtl' => 3600, // TTL in seconds.
 
     /*
     |--------------------------------------------------------------------------

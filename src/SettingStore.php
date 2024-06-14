@@ -56,7 +56,7 @@ abstract class SettingStore
      *
      * @var int
      */
-    protected $cacheTtl = 15;
+    protected $cacheTtl = 3600;
 
     /**
      * Whether to reset the cache when changing a setting.
