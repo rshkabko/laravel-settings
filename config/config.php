@@ -12,7 +12,7 @@ return [
 	| Supported: "json", "database", "model"
 	|
 	*/
-	'store' => 'database',
+	'store' => 'model',
 
 	/*
 	|--------------------------------------------------------------------------
